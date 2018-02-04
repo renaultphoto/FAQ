@@ -191,16 +191,56 @@
 			<artifactId>json</artifactId>
 			<version>20170516</version>
 		</dependency>
-
-
 		<dependency>
 			<groupId>com.googlecode.rapid-framework</groupId>
 			<artifactId>rapid-core</artifactId>
 			<version>4.0.5</version>
 		</dependency>
+	<!-- apache shiro 相关jar -->	
+		<dependency>
+		    <groupId>org.apache.shiro</groupId>
+		    <artifactId>shiro-all</artifactId>
+		    <version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-quartz</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-aspectj</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-cas</artifactId>
+			<version>${shiro.version}</version>
+		</dependency>
 	</dependencies>
 
 	<properties>
+		<shiro.version>1.2.5</shiro.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -209,7 +249,7 @@
 
 
 	<build>
-		<finalName>ForestBlog</finalName>
+		<finalName>FAQ</finalName>
 		<resources>
 			<resource>
 				<directory>src/main/java</directory>
