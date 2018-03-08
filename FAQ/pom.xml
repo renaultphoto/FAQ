@@ -237,6 +237,38 @@
 			<artifactId>shiro-cas</artifactId>
 			<version>${shiro.version}</version>
 		</dependency>
+		
+		<!-- 添加luncene支持 -->
+		<!-- 核心包 -->
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>5.5.4</version>
+		</dependency>
+		<!-- 对分词索引查询解析 -->
+		<dependency>
+		    <groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-queryparser</artifactId>
+			<version>5.5.4</version>
+		</dependency>
+		<!-- 一般分析器，适用于英文分词 -->
+		<dependency>
+		    <groupId>org.apache.lucene</groupId>
+		    <artifactId>lucene-analyzers-common</artifactId>
+		    <version>5.5.4</version>
+		</dependency>   
+		<!-- 高亮 -->  
+		<dependency>  
+		    <groupId>org.apache.lucene</groupId>  
+		    <artifactId>lucene-highlighter</artifactId>  
+		    <version>5.5.4</version>  
+		</dependency>  
+		<!-- 中文分词器 ikanalyzer -->  
+		<dependency>
+		    <groupId>com.janeluo</groupId>
+		    <artifactId>ikanalyzer</artifactId>
+		    <version>2012_u6</version>
+		</dependency>
 	</dependencies>
 
 	<properties>

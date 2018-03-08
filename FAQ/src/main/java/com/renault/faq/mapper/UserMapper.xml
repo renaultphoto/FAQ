@@ -170,4 +170,12 @@
 		user_status = #{userStatus,jdbcType=INTEGER}
 		where user_id = #{userId,jdbcType=INTEGER}
 	</update>
+	<select id="getUserByAccount" resultMap="BaseResultMap" >
+		select 
+		 <include refid="Base_Column_List" />
+		 from user
+		  where user_status = 1
+    and user_name = #{userName,jdbcType=VARCHAR}
+	</select>
+	
 </mapper>
