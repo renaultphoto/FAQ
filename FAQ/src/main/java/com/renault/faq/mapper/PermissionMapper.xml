@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.renault.faq.mapper.PermissionMapper" >
+  <resultMap id="BaseResultMap" type="com.renault.faq.entity.Permission" >
+    <id column="permission_id" property="permissionId" jdbcType="INTEGER" />
+    <result column="permission_url" property="permissionUrl" jdbcType="VARCHAR" />
+    <result column="permission_description" property="permissionDescription" jdbcType="VARCHAR" />
+    <result column="permission_status" property="permissionStatus" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    permission_id, permission_url, permission_description, permission_status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from u_permission
+    where permission_id = #{permissionId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from u_permission
+    where permission_id = #{permissionId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.renault.faq.entity.Permission" >
+    insert into u_permission (permission_id, permission_url, permission_description, 
+      permission_status)
+    values (#{permissionId,jdbcType=INTEGER}, #{permissionUrl,jdbcType=VARCHAR}, #{permissionDescription,jdbcType=VARCHAR}, 
+      #{permissionStatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.renault.faq.entity.Permission" >
+    insert into u_permission
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="permissionId != null" >
+        permission_id,
+      </if>
+      <if test="permissionUrl != null" >
+        permission_url,
+      </if>
+      <if test="permissionDescription != null" >
+        permission_description,
+      </if>
+      <if test="permissionStatus != null" >
+        permission_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="permissionId != null" >
+        #{permissionId,jdbcType=INTEGER},
+      </if>
+      <if test="permissionUrl != null" >
+        #{permissionUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionDescription != null" >
+        #{permissionDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionStatus != null" >
+        #{permissionStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.renault.faq.entity.Permission" >
+    update u_permission
+    <set >
+      <if test="permissionUrl != null" >
+        permission_url = #{permissionUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionDescription != null" >
+        permission_description = #{permissionDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="permissionStatus != null" >
+        permission_status = #{permissionStatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where permission_id = #{permissionId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.renault.faq.entity.Permission" >
+    update u_permission
+    set permission_url = #{permissionUrl,jdbcType=VARCHAR},
+      permission_description = #{permissionDescription,jdbcType=VARCHAR},
+      permission_status = #{permissionStatus,jdbcType=INTEGER}
+    where permission_id = #{permissionId,jdbcType=INTEGER}
+  </update>
+  
+    <!-- 根据用ID查询permission -->
+  <select id="findPermissionByUserId" resultType="java.lang.String">
+  		select p.permission_description from u_permission p , u_role_permission rp, u_user_role ur 
+		where ur.user_id =#{userId,jdbcType=INTEGER} and p.permission_id = rp.permission_id and rp.role_id = ur.role_id
+  </select>
+</mapper>
