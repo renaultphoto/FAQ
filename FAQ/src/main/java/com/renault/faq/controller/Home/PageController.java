@@ -58,7 +58,7 @@ public class PageController {
 	@RequestMapping(value = "/articleFile")
 	public ModelAndView articleFile() throws Exception {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("Home/Page/articleFile");
+		modelAndView.setViewName("Home/Page/articleFileTimeline");
 		List<ArticleListVo> articleList = articleService.listArticle(1);
 		modelAndView.addObject("articleList",articleList);
 		return modelAndView;

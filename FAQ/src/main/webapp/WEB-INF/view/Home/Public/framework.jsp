@@ -28,9 +28,8 @@
 		${options.optionSiteTitle}-${options.optionSiteDescrption}</title>
 </rapid:block>
 <link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet"
-	href="/plugin/font-awesome/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="/plugin/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/plugin/layui/css/layui.css">
 <rapid:block name="header-style">
 
 </rapid:block>
